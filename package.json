@@ -1,0 +1,24 @@
+{
+  "name": "organize_me_captain",
+  "version": "1.0.0",
+  "description": "Content management system for non-developer management to view and organize their employees within the backend database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Morgoth27/organize_me_captain.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Morgoth27/organize_me_captain/issues"
+  },
+  "homepage": "https://github.com/Morgoth27/organize_me_captain#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "mysql2": "^2.3.3"
+  }
+}
