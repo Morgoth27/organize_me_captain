@@ -1,3 +1,9 @@
+const fs = require('fs');
+const path  = require('path');
+const mysql = require('mysql2');
+const inquirer = require('inquirer');
+const db = require('./main/db')
+
 // present user with options
 
 
@@ -28,21 +34,20 @@
 //UPDATES
 //update an employee and their details
 
+function viewDepartments (){
+
+}
 
 
 
 
 
-const inquirer = require('inquirer');
 
 const Manager = require('./lib/manager');
 const Intern = require('./lib/intern');
 const Engineer = require('./lib/engineer');
 const Employee = require('./lib/employee')
-const fs = require('fs');
-const path  = require('path')
 
-const pageTemplate = require('./src/page-template');
 
 const PORT = 3001;
 const employees = [];
