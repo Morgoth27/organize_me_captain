@@ -3,11 +3,9 @@ const path  = require('path');
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const db = require('./main/db/connection.js');
-const utils = require('util')
 
 // present user with options
 
-db.query = util.promisify(db.query)
 
 db.query('SELECT * FROM employee_db')
     .then((results) => {
@@ -48,42 +46,38 @@ async function viewEmployees (){
 
 async function createRole () {
             //SELECT the existing roles out of 'roles' table
-               const departments = [
-                   {
-                       id: 1,
-                       name: "Sales",
-                   },
-                   {
-                       id: 2,
-                       name: "Accounting"
-                   }
-               ];
+    const departments = [
+        {
+            id: 1,
+            name: "Sales",
+        },
+        {
+            id: 2,
+            name: "Accounting"
+        }
+        ];
             //.map the results from 'roles' to question data for inquirer   
-               const choices = departments.map(department => {
-                   return {
-                       name: department.name,
-                       value: department.id,
-                   }
-               })
+    const choices = departments.map(department => {
+        return {
+                name: department.name,
+                value: department.id,
+                }
+    });
 
- 
+
                 //THEN prompt the user for role information (inquirer)
-                    const answers = await inquirer
-                        .prompt([
-                            {
-                                type:"list",
-                                name:"department_id",
-                                message:"Choose a department:",
-                                choices: choices,
-                            }
-                                ])
-                        .then((answers)=> {
-                            console.log(answers)
-                        })
-
-
-
-
+    const answers = await inquirer
+        .prompt([
+            {
+                type:"list",
+                name:"department_id",
+                message:"Choose a department:",
+                 choices: choices,
+             }
+        ])
+        .then((answers)=> {
+            console.log(answers)
+        })
 }
 
 
