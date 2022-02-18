@@ -5,7 +5,7 @@ const connection = mysql.createConnection(
         host: 'localhost',
         user:'root',
         password:'4K@k7pigdydC68q',
-        database: 'employees_db'
+        database: 'employee_db'
     });
 
     connection.query = util.promisify(connection.query);

@@ -3,14 +3,36 @@ const path  = require('path');
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const db = require('./main/db/connection.js');
+const { create } = require('domain');
 
 // present user with options
 
 
-db.query('SELECT * FROM employee_db')
-    .then((results) => {
-    // console.log(results);
-    console.log(err);
+// db.query('SELECT * FROM employee_db')
+//     .then((results) => {
+//     console.log(results);
+//     console.log(err);
+// })
+
+function nextAction() {
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'action',
+            message: 'What would you like to do in the database?',
+            choices: ['View All Roles', 'Add Role']
+        }
+    ])
+    .then(res => {
+        switch(res.action) {
+            case 'View All Roles':
+                viewRoles();
+                break;
+            case 'Add Role':
+                createRole();
+                break;
+        }
+    })
 }
 
 //VIEWS - READ
@@ -80,7 +102,7 @@ async function createRole () {
         })
 }
 
-
+nextAction();
 //add an employee - CREATE - "INSERT INTO table_name (col, col2) VALUES (value, value2)"
 
 
